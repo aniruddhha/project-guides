@@ -1,0 +1,14 @@
+server:
+  port : 6002
+spring:
+  application:
+    name: CAR_SERVICE
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    hostname: localhost
