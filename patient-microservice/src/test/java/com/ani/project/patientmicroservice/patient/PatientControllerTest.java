@@ -2,6 +2,7 @@ package com.ani.project.patientmicroservice.patient;
 
 import com.ani.project.patientmicroservice.patient.domain.Patient;
 import com.ani.project.patientmicroservice.patient.service.PatientService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -28,15 +29,19 @@ public class PatientControllerTest {
 
     @Test
     public void checkSaved() throws Exception {
-        Mockito.when(patientService.savePatient( new Patient(
+        Patient patient = new Patient(
                 1L, "aa", new Date(), "xyz ccv, nn"
-        ))).thenReturn(
+        );
+        Mockito.when(patientService.savePatient(patient)).thenReturn(
                 new Patient(1L, "aa", new Date(), "xyz ccv, nn")
         );
 
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(patient);
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/patient/")
                 .contentType(MediaType.APPLICATION_JSON)
+                .content(json)
         ).andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
