@@ -2,7 +2,7 @@ server:
   port : 6002
 spring:
   application:
-    name: CAR_SERVICE
+    name: CAR-SERVICE
 
 eureka:
   client:

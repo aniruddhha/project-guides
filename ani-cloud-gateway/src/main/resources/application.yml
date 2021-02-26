@@ -1,0 +1,28 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: CAR-SERVICE
+          uri: lb://CAR-SERVICE
+          predicates:
+            - Path=/bill/**
+            - Path=/servicing/**
+        - id: PATIENT-SERVICE
+          uri: lb://PATIENT-SERVICE
+          predicates:
+            - Path=/patient/**
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    hostname: localhost
