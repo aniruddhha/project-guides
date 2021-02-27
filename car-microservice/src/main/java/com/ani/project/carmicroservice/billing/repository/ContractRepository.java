@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface ContractRepository extends JpaRepository<Contract, Long> {
 
+    @Query("select ct from Contract ct where ct.supplier.id = ?1")
+    List<Contract> findAllContracts(Long supplierId);
 }

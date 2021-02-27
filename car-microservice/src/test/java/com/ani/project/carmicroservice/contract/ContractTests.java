@@ -105,4 +105,11 @@ public class ContractTests {
         activeContracts.forEach( ct -> suppliers.add(ct.getSupplier()) );
         assertThat( suppliers.size(), Matchers.greaterThan(0));
     }
+
+    @Test
+    @Order(7)
+    public void fetchAllFromChild() {
+        List<Contract> contracts = contractRepository.findAllContracts(1L);
+        assertThat( contracts.size(), Matchers.greaterThan(0));
+    }
 }
