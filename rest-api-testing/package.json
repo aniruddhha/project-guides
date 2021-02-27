@@ -1,0 +1,17 @@
+{
+  "name": "rest-api-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "patient-microservice.js",
+  "dependencies": {
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}

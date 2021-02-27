@@ -1,10 +1,12 @@
 package com.ani.project.patientmicroservice;
 
 import com.ani.project.patientmicroservice.http.StandardResponse;
+import com.ani.project.patientmicroservice.patient.domain.BillDTO;
 import com.ani.project.patientmicroservice.patient.domain.Patient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +45,15 @@ class PatientMicroserviceApplicationTests {
 		StandardResponse<Patient> res = mapper.readValue(resObj, new TypeReference<StandardResponse<Patient>>() {});
 		Assertions.assertNotNull(res.getBody());
 		Assertions.assertEquals("aa", res.getBody().getName());
+	}
+
+	@Test
+	public void generateBillFromCar() {
+		BillDTO dto = new BillDTO(
+				1L, new Date(), "Android X"
+		);
+		BillDTO resObj = restTemplate.postForObject("http://localhost:"+port+"/patient/car/bill",  dto, BillDTO.class);
+		Assertions.assertNotNull(resObj);
+		Assertions.assertEquals("Android X", resObj.getCustomerName());
 	}
 }

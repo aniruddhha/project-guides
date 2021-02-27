@@ -12,12 +12,16 @@ spring:
           predicates:
             - Path=/bill/**
             - Path=/servicing/**
+          filters:
+            - RewritePath=/bill/(?<path>.*), /$\{path}
+            - name: CircuitBreaker
+              args:
+                - name: mycircuitbreaker
+                - fallbackUri: forward:/fallback
         - id: PATIENT-SERVICE
           uri: lb://PATIENT-SERVICE
           predicates:
             - Path=/patient/**
-
-
 eureka:
   client:
     register-with-eureka: true
