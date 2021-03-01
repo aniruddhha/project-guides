@@ -1,35 +1,42 @@
 import React from 'react'
-import './roles.component.css'
+import { useHistory } from "react-router-dom";
+
+import './user.component.css'
 
 export default function RoleSelection() {
+
+    const history = useHistory()
+
+    function onSelectRole(role) {
+        history.push('/login', { params: { role } })
+    }
+
     return (
         <>
-            <div className="container">
+            <div className="mainContainer">
                 <div className="imgContainer">
                     image section
                </div>
                 <div className="verticalLine"></div>
-                <div className="rolesContainer">
-                    <div className="roleDiv">
+                <div className="rightContainer">
+                    <div className="rightChild">
                         Whats your Role ?
                     </div>
-                    <div className="roleDiv">
-                        <input type="button" value="Admin" />
+                    <div className="rightChild">
+                        <input className="btn btn-primary" type="button" value="Admin" onClick={() => onSelectRole('admin')}
+                        />
                     </div>
-                    <div className="roleDiv">
-                        <input type="button" value="Clerk" />
+                    <div className="rightChild">
+                        <input className="btn btn-primary" type="button" value="Clerk" onClick={() => onSelectRole('clerk')} />
                     </div>
-                    <div className="roleDiv">
-                        <input type="button" value="Doctor" />
+                    <div className="rightChild">
+                        <input className="btn btn-primary" type="button" value="Doctor" onClick={() => onSelectRole('doctor')} />
                     </div>
-                    <div className="roleDiv">
-                        <input type="button" value="Patient" />
+                    <div className="rightChild">
+                        <input className="btn btn-primary" type="button" value="Patient" onClick={() => onSelectRole('patient')} />
                     </div>
-                    <div className="roleDiv">
-
-                    </div>
-                    <div className="roleDiv">
-                        <a>If registered click here to login</a>
+                    <div className="rightChild">
+                        <a className="text-secondary">If registered click here to login</a>
                     </div>
                 </div>
             </div>
