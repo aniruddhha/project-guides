@@ -10,10 +10,12 @@ import Treatment from './treatment/treatment';
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 import RoutesDashboard from './dashboard/routes-dashboard.component';
+import RoleSelection from './user/roles.component';
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
+      <Route path="/" component={RoleSelection} exact />
       <Route path="/dashboard" component={RoutesDashboard} />
       <Route path="/patient" component={Patient} />
       <Route path="/test-result" component={TestResult} />

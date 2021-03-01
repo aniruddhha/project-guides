@@ -11,7 +11,7 @@ export default function RoutesDashboard({ match: { url } }) {
             <Route path={`${url}/admin`} component={DashboardAdmin} />
             <Route path={`${url}/clerk`} component={DashboardClerk} />
             <Route path={`${url}/doctor`} component={DashboardDoctor} />
-            <Route path={`${url}/patient`} component={DashboardPatient} />
+            <Route path={`${url}/patient/:id`} component={DashboardPatient} />
         </>
     )
 }
