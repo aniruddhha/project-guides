@@ -1,0 +1,127 @@
+.registrationContainer {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'ttl ttl ttl . .'
+    'dvRole dvRole dvRole . .'
+    'dvBsInf dvBsInf dvBsInf dvBsInf dvBsInf'
+    'dvFirstName dvLastName dvGender . .'
+    'dvDob dvContact dvAddress . .'
+    'dvRegDtls dvRegDtls dvRegDtls dvRegDtls dvRegDtls'
+    'dvEmail dvPassword dvConfirmPassword . .'
+    'dvQuali dvQuali dvQuali dvQuali dvQuali'
+    'dvQualification dvSpelization . . .'
+    'dvOther dvOther dvOther dvOther dvOther'
+    'dvDr dvDr dvDr dvDr dvDr'
+    'dvBtn dvBtn dvBtn dvBtn dvBtn'
+    ;
+
+    justify-content: flex-start;
+
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.registrationContainer div {
+    /* border: 1px solid grey; */
+}
+
+
+.ttl {
+    grid-area:ttl;
+} 
+
+.dvRole {
+    grid-area: dvRole;
+}
+
+.dvBsInf {
+    grid-area: dvBsInf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dvBsInf :last-child {
+    flex: 8;
+    margin-left: 0.2vw;
+    align-content: center;
+}
+
+.dvFirstName {
+    grid-area:dvFirstName;
+}
+.dvLastName {
+    grid-area:dvLastName;
+}
+.dvGender {
+    grid-area: dvGender;
+}
+.dvDob {
+    grid-area: dvDob;
+}
+.dvContact {
+    grid-area: dvContact;
+}
+.dvAddress {
+    grid-area: dvAddress;
+}
+
+.dvRegDtls {
+    grid-area: dvRegDtls;
+    display: flex;
+}
+
+.dvRegDtls :last-child {
+    flex: 8;
+    margin-left: 0.2vw;
+    align-content: center;
+}
+
+.dvEmail {
+    grid-area: dvEmail;
+}
+.dvPassword {
+    grid-area: dvPassword;
+}
+.dvConfirmPassword {
+    grid-area: dvConfirmPassword;
+}
+
+.dvQuali {
+    grid-area: dvQuali;
+    display: flex;
+}
+
+
+.dvQuali :last-child {
+    flex: 8;
+    margin-left: 0.2vw;
+    align-content: center;
+}
+
+.dvQualification {
+    grid-area: dvQualification;
+}
+.dvSpelization {
+    grid-area: dvSpelization;
+}
+.dvOther {
+    grid-area: dvOther;
+}
+
+.dvDr {
+    grid-area: dvDr;
+}
+
+.dvBtn {
+    grid-area: dvBtn;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
